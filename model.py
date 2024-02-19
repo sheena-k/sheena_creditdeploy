@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
 from imblearn.over_sampling import SMOTE
-from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
@@ -70,11 +69,19 @@ data["Changed_Credit_Limit"] = data["Changed_Credit_Limit"].astype(int)
 
 train=data.drop(["ID","Customer_ID","SSN","Month","Name","Type_of_Loan","Occupation",
                  "Amount_invested_monthly","Credit_Utilization_Ratio","Monthly_Inhand_Salary"],axis=1)
-le= LabelEncoder()
-train["Credit_Score"] = le.fit_transform(train["Credit_Score"])
-train["Payment_Behaviour"] = le.fit_transform(train["Payment_Behaviour"])
-train["Payment_of_Min_Amount"] = le.fit_transform(train["Payment_of_Min_Amount"])
-train["Credit_Mix"] = le.fit_transform(train["Credit_Mix"])
+
+
+CreditScore ={"Good" :0,"Poor":1,"Standard":2}
+train["Credit_Score"] = train["Credit_Score"].map(CreditScore)
+PaymentBehaviour={"Low_spent_Small_value_payments":5,"High_spent_Medium_value_payments":1,
+                   "High_spent_Large_value_payments":0,"Low_spent_Medium_value_payments":4,
+                   "High_spent_Small_value_payments":2,"Low_spent_Large_value_payments":3}
+train["Payment_Behaviour"] =train["Payment_Behaviour"].map(PaymentBehaviour)
+PaymentofMinAmount ={"Yes":2,"No":1,"NM":0}
+train["Payment_of_Min_Amount"]=train["Payment_of_Min_Amount"].map(PaymentofMinAmount)
+CreditMix = {"Standard":2,"Good":1,"Bad":0}
+train["Credit_Mix"]=train["Credit_Mix"].map(CreditMix)
+
 
 X = train.drop(["Credit_Score"],axis=1)
 Y = pd.DataFrame(train["Credit_Score"])
