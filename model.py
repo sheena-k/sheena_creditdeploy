@@ -102,6 +102,6 @@ pipeline = make_pipeline(MinMaxScaler(),RandomForestClassifier())
 model = pipeline.fit(x_train, y_train)
 y_pred = model.predict(x_test)
 
-#filename="model.pickle"
-#with gzip.open(filename,"wb") as file:
-   #pickle.dump(model,file)
+filename="model.pickle"
+with gzip.open(filename,"wb") as file:
+   pickle.dump(model,file)
