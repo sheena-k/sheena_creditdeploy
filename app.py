@@ -25,19 +25,19 @@ def predict():
            
         
            Annual_Income =float(request.form["Annual_Income"])
-           Age = int(request.form["Age"])
-           Num_Bank_Accounts =int(request.form["Num_Bank_Accounts"])
-           Num_Credit_Card = int(request.form["Num_Credit_Card"])
-           Num_of_Loan = int(request.form["Num_of_Loan"])
+           Age = float(request.form["Age"])
+           Num_Bank_Accounts =float(request.form["Num_Bank_Accounts"])
+           Num_Credit_Card = float(request.form["Num_Credit_Card"])
+           Num_of_Loan = float(request.form["Num_of_Loan"])
            Interest_Rate = float(request.form["Interest_Rate"])
            Monthly_Balance = float(request.form["Monthly_Balance"])
            Total_EMI_per_month =float(request.form["Total_EMI_per_month"])
            Outstanding_Debt =float(request.form["Outstanding_Debt"])
            Delay_from_due_date = float(request.form["Delay_from_due_date"])
            Num_of_Delayed_Payment = float(request.form["Num_of_Delayed_Payment"])
-           Changed_Credit_Limit =int(request.form["Changed_Credit_Limit"])
+           Changed_Credit_Limit =float(request.form["Changed_Credit_Limit"])
            Num_Credit_Inquiries = float(request.form["Num_Credit_Inquiries"])
-           Credit_History_Age = int(request.form["Credit_History_Age"])
+           Credit_History_Age = float(request.form["Credit_History_Age"])
            Payment_of_Min_Amount = request.form["Payment_of_Min_Amount"]
            Payment_Behaviour =request.form["Payment_Behaviour"]
            Credit_Mix = request.form["Credit_Mix"]
