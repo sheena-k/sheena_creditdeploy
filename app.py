@@ -43,10 +43,11 @@ def predict():
            Monthly_Balance = float(request.form["Monthly_Balance"])
         
            prediction = load_model.predict(np.array([[Annual_Income,Age,Num_Bank_Accounts,Num_Credit_Card,
-                                              Interest_Rate,Num_of_Loan,Delay_from_due_date,Num_of_Delayed_Payment,
-                                              Num_Credit_Inquiries,Credit_Mix,Outstanding_Debt,Credit_History_Age,
-                                              Payment_Behaviour,Payment_of_Min_Amount,Changed_Credit_Limit,
-                                              Total_EMI_per_month,Monthly_Balance]]))[0]
+                                              Num_of_Loan,Interest_Rate,Monthly_Balance,Total_EMI_per_month,
+                                              Outstanding_Debt,Delay_from_due_date,Num_of_Delayed_Payment,
+                                              Changed_Credit_Limit,Num_Credit_Inquiries,Credit_History_Age,
+                                              Payment_Behaviour,Payment_of_Min_Amount,Credit_Mix]]))[0]
+                                             
            output = int(prediction)
            if (output == 0):
          
