@@ -1,7 +1,7 @@
 import pickle
 import numpy as np
 from flask import Flask, request, render_template
-#import pickle
+import gzip
 
 #import pandas as pd
 
@@ -10,8 +10,8 @@ from flask import Flask, request, render_template
 
 
 app = Flask(__name__)
-
-load_model = pickle.load('filename.pickle',rb)
+with gzip.open("model.pickle","rb") as file:
+    load_model = pickle.load(file)
 @app.route('/')
 def index():
 
@@ -25,26 +25,27 @@ def predict():
            
         
            Annual_Income =float(request.form["Annual_Income"])
-          
+           Age = int(request.form["Age"])
            Num_Bank_Accounts =int(request.form["Num_Bank_Accounts"])
            Num_Credit_Card = int(request.form["Num_Credit_Card"])
            Interest_Rate = float(request.form["Interest_Rate"])
            Num_of_Loan = int(request.form["Num_of_Loan"])
            Delay_from_due_date = float(request.form["Delay_from_due_date"])
            Num_of_Delayed_Payment = float(request.form["Num_of_Delayed_Payment"])
-           
+           Changed_Credit_Limit =int(request.form["Changed_Credit_Limit"])
            Num_Credit_Inquiries = float(request.form["Num_Credit_Inquiries"])
            Credit_Mix = request.form["Credit_Mix"]
            Outstanding_Debt =float(request.form["Outstanding_Debt"])
            Credit_History_Age = int(request.form["Credit_History_Age"])
-           
+           Payment_of_Min_Amount = request.form["Payment_of_Min_Amount"]
            Total_EMI_per_month =float(request.form["Total_EMI_per_month"])
-           
+           Payment_Behaviour =request.form["Payment_Behaviour"]
            Monthly_Balance = float(request.form["Monthly_Balance"])
         
-           prediction = load_model.predict(np.array([[Annual_Income,Num_Bank_Accounts,Num_Credit_Card,
+           prediction = load_model.predict(np.array([[Annual_Income,Age,Num_Bank_Accounts,Num_Credit_Card,
                                               Interest_Rate,Num_of_Loan,Delay_from_due_date,Num_of_Delayed_Payment,
                                               Num_Credit_Inquiries,Credit_Mix,Outstanding_Debt,Credit_History_Age,
+                                              Payment_Behaviour,Payment_of_Min_Amount,Changed_Credit_Limit,
                                               Total_EMI_per_month,Monthly_Balance]]))[0]
            output = int(prediction)
            if (output == 0):
