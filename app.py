@@ -27,7 +27,7 @@ def predict():
            Annual_Income =float(request.form["Annual_Income"])
            Age = int(request.form["Age"])
            Num_Bank_Accounts =int(request.form["Num_Bank_Accounts"])
-                      Num_Credit_Card = int(request.form["Num_Credit_Card"])
+           Num_Credit_Card = int(request.form["Num_Credit_Card"])
            Num_of_Loan = int(request.form["Num_of_Loan"])
            Interest_Rate = float(request.form["Interest_Rate"])
            Monthly_Balance = float(request.form["Monthly_Balance"])
