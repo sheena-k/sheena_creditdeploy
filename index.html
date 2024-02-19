@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Score Classification</title>
+</head>
+
+<body>
+
+    <div style="color: #001f4d">
+        <form action="{{ url_for('predict')}}" method="post">
+            <h1 id="heading">Predict Credit Score</h1>
+      
+<div class="card-title">         
+            <h4>Age</h4>
+            <input class="input" name="Age" required="number">
+          
+           
+</div>
+
+<br>
+
+<div class="card-title">
+  <h4>SSN</h4>
+  <input class="input" name="SSN" required="number">
+</div>
+<div class="card-title">
+  <h4>Annual Income</h4>
+  <input class="input" name="Annual_Income" required="number">
+ 
+</div>
+
+<br>
+<div class="card-title">
+  <h4>Num of Credit Card</h4>
+  <input class="input" name="Num_Credit_Card" required="number">
+</div>
+<div class="card-title">
+  <h4>Interest Rate </h4>
+  <input class="input" name="Interest_Rate" required="number">
+ 
+</div>
+
+
+<br>
+
+<div class="card-title">
+  <h4>Num of Loan Taken</h4>
+  <input class="input" name="Num_of_Loan" required="number">
+</div>
+  <div class="card-title">
+  <h4>Delay of Payment after due date </h4>
+  <input class="input" name="Delay_from_due_date" required="number">
+ 
+</div>
+<br>
+<div class="card-title">
+  <h4>Num of Delayed Payment</h4>
+  <input class="input" name="Num_of_Delayed_Payment" required="number">
+</div>
+  <div class="card-title">
+  <h4>Changed Credit Card Limits </h4>
+  <input class="input" name="Changed_Credit_Limit" required="number">
+ 
+</div>
+<br>
+<div class="card-title">
+  <h4>Num of Credit Inquiries</h4>
+  <input class="input" name="Num_Credit_Inquiries" required="number">
+</div>
+<div class="card-title">
+  <h4>Num of Bank Accounts </h4>
+  <input class="input" name="Num_Bank_Accounts" required="number">
+ 
+</div>
+<br>
+<div class="card-title">
+  <h4>Monthly Balance</h4>
+  <input class="input" name="Monthly_Balance" required="number">
+</div>
+<div class="card-title">
+  <h4>Outstanding Debt </h4>
+  <input class="input" name="Outstanding_Debt" required="number">
+ 
+</div>
+<br>
+<div class="card-title">
+  <h4>Total EMI Per Month</h4>
+
+  <input class="input" name="Total_EMI_per_month" required="number">
+</div>
+<div class="card-title">
+  <h4>Credit Card History Age </h4>
+  <input class="input" name="Credit_History_Age" required="number">
+  <br>
+ 
+</div>
+<div class="card-title">
+  <h2>Payment Behaviour</h2>
+  
+  <select class="input" name="Payment_Behaviour" required="required">
+         <option value="5">Low_spent_Small_value_payments</option>
+        <option value="1">High_spent_Medium_value_payments</option>
+        <option value="0">High_spent_Large_value_payments</option>
+        <option value="4">Low_spent_Medium_value_payments</option>
+        <option value="2">High_spent_Small_value_payments</option>
+        <option value="3">Low_spent_Large_value_payments</option>
+    </select>
+  </div>
+  <div class="card-title">
+  <h4>Payment of Minimum Amount</h4>
+  <select class="input" name="Payment_of_Min_Amount" required="required">
+         <option value="2">Yes</option>
+         <option value="1">No</option>
+         <option value="0">NM</option>
+  </select>
+</div>
+
+<br>
+
+<div class="card-title">
+<h2>Credit Mix</h2>
+<select class="input" name="Credit_Mix" required="required">
+         <option value="2">Standard</option>
+         <option value="1">Good</option>
+         <option value="0">Bad</option>
+  </select>
+</div>
+
+<br>
+
+            <br>
+            <button class="submit" type="submit">Submit</button>
+            <br>
+
+        </form>
+
+    </div>
+
+        <br><h1>{{ prediction_text }}</h1>
+
+
+    <style>
+        body {
+            background-image: url("https://img.freepik.com/free-vector/paying-ability-creditor-borrower-bank-operation-financial-transaction_335657-750.jpg?w=740&t=st=1707815923~exp=1707816523~hmac=56a02d3a9ecc38b0202fd5601677c9c63169532b3e9884ca5598b735fc1191c8");
+            text-align: center;
+            padding: 0px;
+            background-position:center; background-repeat:no-repeat; background-size:cover;
+            margin:auto;
+        }
+        #heading{
+            line-height:80px;
+            color:white;
+            background-color:#0099ff;
+        }
+
+        h1{background-color:#f2f2f2}
+
+        h2{color:#003399;}
+        
+.card-title{
+background-color: #f2f2f2;
+padding:5px;
+margin-bottom:2px;
+border-radius:15px;
+width:400px;
+height:100px;
+margin:auto;
+}
+
+.input{
+width: 300px;
+
+height: 43px;
+
+text-align: center;
+
+border-radius: 16px;
+
+font-size: 18px;
+
+
+}
+
+.submit{
+width: 200px;
+
+height: 50px;
+
+text-align: center;
+
+border-radius: 16px;
+
+font-size: 18px;
+}
+
+    </style>
+</body>
+
+</html>
