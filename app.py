@@ -52,13 +52,13 @@ def predict():
            output = int(prediction)
            if (output == 0):
          
-               return render_template("result.html",prediction_text=" Credit Score is Good, predicted value is: ""{}".format(output))
+               return render_template("result.html",prediction_text=" Credit Score is classified as Good")
            
            elif (output==1):
-                return render_template("result.html",prediction_text="Credit Score is Poor, predicted value is: ""{}".format(output))
+                return render_template("result.html",prediction_text="Credit Score is classified as Poor")
         
            else :
-                return render_template("result.html",prediction_text= "Credit Score is Standard, predicted value is :""{}".format(output))
+                return render_template("result.html",prediction_text= "Credit Score is classified as Standard")
                                         
                                  
           
