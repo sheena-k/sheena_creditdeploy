@@ -1,4 +1,7 @@
 # sheena_creditdeploy
+---
+![Github Logo](https://github.com/sheena-k/Sheena_Internship/blob/main/creditscore.png)
+---
 
 Credit score classification is the process of predicting the creditworthiness of a loan applicant based on their financial and personal information. It is a common application of data analytics and machine learning in the financial industry.
 
